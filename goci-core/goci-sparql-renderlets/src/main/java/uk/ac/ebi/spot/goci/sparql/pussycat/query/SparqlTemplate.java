@@ -13,6 +13,8 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Service;
@@ -53,6 +55,12 @@ public class SparqlTemplate {
     @Required
     public void setJenaQueryExecutionService(JenaQueryExecutionService jenaQueryExecutionService) {
         this.jenaQueryExecutionService = jenaQueryExecutionService;
+    }
+
+    private Logger log = LoggerFactory.getLogger(getClass());
+
+    protected Logger getLog() {
+        return log;
     }
 
     public String getPrefixes() {
@@ -194,6 +202,7 @@ public class SparqlTemplate {
         QueryExecution execute = null;
         try {
             execute = getJenaQueryExecutionService().getQueryExecution(g, queryString.asQuery(), false);
+            getLog().debug(q1.toString());
             ResultSet results = execute.execSelect();
             return rsm.mapResultSet(results);
         }
