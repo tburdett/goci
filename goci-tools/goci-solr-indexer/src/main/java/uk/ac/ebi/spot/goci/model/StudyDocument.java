@@ -62,6 +62,7 @@ public class StudyDocument extends OntologyEnabledDocument<Study> {
     @Field @NonEmbeddableField private Boolean agreedToCc0;
     @Field @NonEmbeddableField private String cohort;
     @Field @NonEmbeddableField private String ftpLink;
+    @Field @NonEmbeddableField private Boolean gxe;
 
     @Field @NonEmbeddableField private int associationCount;
 
@@ -115,6 +116,7 @@ public class StudyDocument extends OntologyEnabledDocument<Study> {
         this.agreedToCc0 = study.isAgreedToCc0();
         this.cohort = getCohort(study);
         this.ftpLink = computeFtpLink(study);
+        this.gxe = study.getGxe();
 
         this.initialSampleDescription = study.getInitialSampleSize();
         this.replicateSampleDescription = study.getReplicateSampleSize();
@@ -541,6 +543,10 @@ public class StudyDocument extends OntologyEnabledDocument<Study> {
 
     public String getFtpLink() {
         return ftpLink;
+    }
+
+    public Boolean getGxe() {
+        return gxe;
     }
 
     private void extractDiscoveryAndReplicationSampleAncestryList() {
