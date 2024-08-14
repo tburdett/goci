@@ -211,7 +211,7 @@ public class DepositionSyncService {
                 ineligible++;
             }
         }
-        return totalCount != ineligible;
+        return totalCount != ineligible || totalCount == 0;
     }
 
     private String getInvalidStatus(Publication publication) {
