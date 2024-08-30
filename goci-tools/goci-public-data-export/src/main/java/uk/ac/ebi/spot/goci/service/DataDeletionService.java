@@ -62,6 +62,18 @@ public class DataDeletionService {
         getLog().info("Study deletion process successfully completed");
     }
 
+
+    public void deletePublicationsWithoutStudies() {
+        List<Publication>  pubs = publicationService.findAll();
+        pubs.forEach(pub ->  {
+            if(pub.getStudies().isEmpty()) {
+                getLog().info(" Deleting Pmid without studies {}",pub.getPubmedId());
+                publicationService.deletePublicationWithoutStudies(pub);
+            }
+        });
+
+    }
+
     private void deleteStudy(Study study) {
         System.out.println("Removing study \t" + study.getPublicationId().getFirstAuthor().getFullname() + "\t (ID:" + study.getId() + ") with \t"
                                + study.getAssociations().size() + "\t association and \t"

@@ -26,12 +26,15 @@ public class PublicationService {
 
     private PublicationRepository publicationRepository;
     private StudyService studyService;
+    private PublicationAuthorsService publicationAuthorsService;
 
     @Autowired
     public PublicationService(PublicationRepository publicationRepository,
-                              StudyService studyService) {
+                              StudyService studyService,
+                              PublicationAuthorsService publicationAuthorsService) {
         this.publicationRepository = publicationRepository;
         this.studyService = studyService;
+        this.publicationAuthorsService = publicationAuthorsService;
     }
 
     private Optional<Publication> getValue(Publication publication) {
@@ -108,6 +111,11 @@ public class PublicationService {
     public void updatePublicationFirstAuthor(Publication publication, Author firstAuthor) {
         publication.setFirstAuthor(firstAuthor);
         save(publication);
+    }
+
+    public void deletePublicationWithoutStudies(Publication publication){
+        publicationAuthorsService.deleteByPublication(publication);
+        publicationRepository.delete(publication);
     }
 
     public Boolean deletePublication(Publication publication) {
