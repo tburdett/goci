@@ -32,6 +32,7 @@ public class GOCIDataExportDriver {
             System.out.println("Running application with supplied params: " + Arrays.toString(strings));
 
             dataDeletionervice.deleteNonPublicStudies();
+            dataDeletionervice.deletePublicationsWithoutStudies();
             System.out.println("Export complete - application will now exit");
         };
     }
