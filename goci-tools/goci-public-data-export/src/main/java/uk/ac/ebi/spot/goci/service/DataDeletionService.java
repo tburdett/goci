@@ -68,7 +68,7 @@ public class DataDeletionService {
         pubs.forEach(pub ->  {
             if(pub.getStudies().isEmpty()) {
                 getLog().info(" Deleting Pmid without studies {}",pub.getPubmedId());
-                publicationService.deletePublication(pub);
+                publicationService.deletePublicationWithoutStudies(pub);
             }
         });
 
