@@ -348,18 +348,39 @@
 
 
     <repositories>
-   	    <repository>
-   	        <id>nexus-public</id>
-   	        <name>Public Repository</name>
-   	        <url>https://www.ebi.ac.uk/spot/nexus/repository/maven-public/</url>
-   	        <releases>
-   	            <enabled>true</enabled>
-   	        </releases>
-   	        <snapshots>
-   	            <enabled>true</enabled>
-   	        </snapshots>
-   	    </repository>
-   	</repositories>
+        <repository>
+            <id>spot-releases</id>
+            <name>Releases</name>
+            <url>https://wwwdev.ebi.ac.uk/gwas/nexus/repository/maven-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spot-snapshots</id>
+            <name>Snapshot</name>
+            <url>https://wwwdev.ebi.ac.uk/gwas/nexus/repository/maven-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <!--  <repository>
+              <id>central</id>
+              <name>Maven Central</name>
+              <layout>default</layout>
+              <url>https://repo1.maven.org/maven2</url>
+              <snapshots>
+                  <enabled>false</enabled>
+              </snapshots>
+          </repository>-->
+    </repositories>
     
     <!--<repositories>-->
         <!--<repository>-->
