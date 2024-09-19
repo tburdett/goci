@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import uk.ac.ebi.spot.goci.model.Ancestry;
 import uk.ac.ebi.spot.goci.model.Association;
 import uk.ac.ebi.spot.goci.model.Publication;
@@ -63,10 +65,11 @@ public class DataDeletionService {
     }
 
 
+    @Transactional
     public void deletePublicationsWithoutStudies() {
         List<Publication>  pubs = publicationService.findAll();
         pubs.forEach(pub ->  {
-            if(pub.getStudies().isEmpty()) {
+            if(pub.getStudies() != null && pub.getStudies().isEmpty()) {
                 getLog().info(" Deleting Pmid without studies {}",pub.getPubmedId());
                 publicationService.deletePublicationWithoutStudies(pub);
             }

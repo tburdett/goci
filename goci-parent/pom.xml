@@ -145,6 +145,32 @@
         <tag>HEAD</tag>
     </scm>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spot-releases</id>
+            <name>Releases</name>
+            <url>https://wwwdev.ebi.ac.uk/gwas/nexus/repository/maven-releases/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spot-snapshots</id>
+            <name>Snapshot</name>
+            <url>https://wwwdev.ebi.ac.uk/gwas/nexus/repository/maven-snapshots/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+
+
+        <!--  <repository>
+              <id>central</id>
+              <name>Maven Central</name>
+              <layout>default</layout>
+              <url>https://repo1.maven.org/maven2</url>
+              <snapshots>
+                  <enabled>false</enabled>
+              </snapshots>
+          </repository>-->
+
+
     <!-- Maven repository and site deployment -->
     <!-- TODO: Set this up to work with GitHub repo -->
     <!--<distributionManagement>-->
