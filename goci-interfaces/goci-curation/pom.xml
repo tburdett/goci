@@ -72,7 +72,7 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
-        <!--&lt;!&ndash; workaround for https://github.com/spring-projects/spring-boot/issues/2124 &ndash;&gt;-->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
