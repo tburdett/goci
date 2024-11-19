@@ -47,7 +47,7 @@
         <jena-core.version>2.12.0</jena-core.version>
         <mockito.version>1.10.19</mockito.version>
         <batik.version>1.8</batik.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <assertj.version>3.4.0</assertj.version>
         <json.version>20141113</json.version>
         <unirest.version>1.4.6</unirest.version>
